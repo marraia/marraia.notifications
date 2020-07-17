@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marraia.Notifications", "Marraia.Notifications\Marraia.Notifications.csproj", "{67D6401A-22CE-4E5D-B14C-81B257026CDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marraia.Notifications.Test", "Marraia.Notifications.Test\Marraia.Notifications.Test.csproj", "{90EC2C30-EAF7-4AF5-8236-39989DE051FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67D6401A-22CE-4E5D-B14C-81B257026CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D6401A-22CE-4E5D-B14C-81B257026CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D6401A-22CE-4E5D-B14C-81B257026CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D6401A-22CE-4E5D-B14C-81B257026CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90EC2C30-EAF7-4AF5-8236-39989DE051FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90EC2C30-EAF7-4AF5-8236-39989DE051FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90EC2C30-EAF7-4AF5-8236-39989DE051FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90EC2C30-EAF7-4AF5-8236-39989DE051FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FF6FE8C-57FD-4869-B234-76EF3DB7911B}
+	EndGlobalSection
+EndGlobal

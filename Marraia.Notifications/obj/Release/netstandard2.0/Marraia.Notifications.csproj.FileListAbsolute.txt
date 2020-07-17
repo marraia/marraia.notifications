@@ -1,0 +1,9 @@
+C:\_test\Marraia.Notifications\Marraia.Notifications\bin\Release\netstandard2.0\Marraia.Notifications.deps.json
+C:\_test\Marraia.Notifications\Marraia.Notifications\bin\Release\netstandard2.0\Marraia.Notifications.dll
+C:\_test\Marraia.Notifications\Marraia.Notifications\bin\Release\netstandard2.0\Marraia.Notifications.pdb
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.csprojAssemblyReference.cache
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.AssemblyInfoInputs.cache
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.AssemblyInfo.cs
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.csproj.CoreCompileInputs.cache
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.dll
+C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Release\netstandard2.0\Marraia.Notifications.pdb
