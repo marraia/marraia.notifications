@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/marraia/marraia.notifications/workflows/.NET%20Core/badge.svg?branch=master)
+
 # Utilização do Marraia.Notifications em aplicações em .Net Core
 
 Em sua API, notifique suas regras de negócio ao invés de usar exceptions!
