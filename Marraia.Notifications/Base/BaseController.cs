@@ -11,28 +11,17 @@ namespace Marraia.Notifications.Base
     public abstract class BaseController : ControllerBase
     {
         private readonly DomainNotificationHandler _messageHandler;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="notification"></param>
+
         protected BaseController(INotificationHandler<DomainNotification> notification)
         {
             _messageHandler = (DomainNotificationHandler)notification;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         protected bool HasNotification()
         {
             return _messageHandler.HasNotifications();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         protected IActionResult NotificationBusiness()
         {
             var notifications = _messageHandler.GetNotifications();
@@ -44,12 +33,6 @@ namespace Marraia.Notifications.Base
             };
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="response"></param>
-        /// <param name="statusCode"></param>
-        /// <returns></returns>
         protected IActionResult HttpResponse(object response, HttpStatusCode statusCode = HttpStatusCode.OK)
         {
             if (!_messageHandler.HasNotifications()) return new JsonResult(response)
@@ -74,11 +57,6 @@ namespace Marraia.Notifications.Base
             };
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="result"></param>
-        /// <returns></returns>
         protected IActionResult OkOrNotFound(object result = null)
         {
 
@@ -102,11 +80,6 @@ namespace Marraia.Notifications.Base
             return NotificationBusiness();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="result"></param>
-        /// <returns></returns>
         protected IActionResult OkOrNoContent(object result = null)
         {
             if (!HasNotification() && result != null)
@@ -140,11 +113,6 @@ namespace Marraia.Notifications.Base
             return NotificationBusiness();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="result"></param>
-        /// <returns></returns>
         protected IActionResult AcceptedContent(object result = null)
         {
             if (!HasNotification())
@@ -162,11 +130,6 @@ namespace Marraia.Notifications.Base
             return NotificationBusiness();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="result"></param>
-        /// <returns></returns>
         protected IActionResult AcceptedOrContent(object result = null)
         {
             if (!HasNotification())
@@ -184,12 +147,6 @@ namespace Marraia.Notifications.Base
             return NotificationBusiness();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rota"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
         protected IActionResult CreatedContent(string rota, object result = null)
         {
             if (!HasNotification())
