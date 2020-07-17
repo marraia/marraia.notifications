@@ -65,17 +65,17 @@ public class UserAppService : IUserAppService
 
 Depois de notificar suas regras de negócio ou validações, em sua controller utilize os métodos:
 
--OkOrNotFound() => Para métodos GET, se verifica caso tenha algum item, o método retornará o código HTTP Ok(200).
+-**OkOrNotFound()** => Para métodos GET, se verifica caso tenha algum item, o método retornará o código HTTP Ok(200).  
                    Caso não ter nenhum item, retornará o código HTTP NotFound(404)
                    
--OkOrNoContent() => Para métodos GET, se verifica caso tenha alguma lista com itens, o método retornará o código HTTP Ok(200).
+-**OkOrNoContent()** => Para métodos GET, se verifica caso tenha alguma lista com itens, o método retornará o código HTTP Ok(200).  
                     Caso não ter nenhum item na lista, retornará o código HTTP NoContent(204)
                     
--AcceptedContent() => Para método PUT, caso a alteração foi com sucesso, retornará Accept(202). 
+-**AcceptedContent()** => Para método PUT, caso a alteração foi com sucesso, retornará Accept(202).  
                     Caso o recurso não foi encontrado, retornará NotFound(404). 
                     Caso tenha notificação retornará as notificações específicas BadRequest(404) ou Conflict(409)
                     
--CreatedContent() => Para método POST, caso a inserção foi com sucesso, retornará Created(201).
+-**CreatedContent()** => Para método POST, caso a inserção foi com sucesso, retornará Created(201).  
                      Caso tenha notificação retornará as notificações específicas BadRequest(404) ou Conflict(409)
                      
  Faça a herança da classe **BaseController** em sua controller, e faça a injeção da interface **INotificationHandler<DomainNotification>** no contrutor.
