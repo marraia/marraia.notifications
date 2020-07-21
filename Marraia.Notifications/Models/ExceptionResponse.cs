@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Linq;
 
 namespace Marraia.Notifications.Models
 {
@@ -64,12 +65,15 @@ namespace Marraia.Notifications.Models
 
         private ExceptionResponse GetCompleteException(List<DomainNotification> validationErrors)
         {
+            var codeRequest = validationErrors?.FirstOrDefault();
             var response = new ExceptionResponse
             {
                 Error = new Errors
                 {
                     Message = validationErrors,
-                    Code = HttpStatusCode.BadRequest.ToString()
+                    Code = codeRequest.DomainNotificationType == Enum.DomainNotificationType.BadRequest 
+                                                                    ? HttpStatusCode.BadRequest.ToString()
+                                                                    : HttpStatusCode.Conflict.ToString()
                 }
             };
 
