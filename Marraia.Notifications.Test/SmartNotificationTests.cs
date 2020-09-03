@@ -7,16 +7,18 @@ using MediatR;
 using NSubstitute;
 using System;
 using Xunit;
+using System.Linq;
 
 namespace Marraia.Notifications.Test
 {
     public class SmartNotificationTests
     {
         private INotificationHandler<DomainNotification> subNotificationHandler;
-
+        private DomainNotificationHandler domainNotificationHandler;
         public SmartNotificationTests()
         {
-            this.subNotificationHandler = Substitute.For<DomainNotificationHandler>();
+            domainNotificationHandler = new DomainNotificationHandler();
+            this.subNotificationHandler = domainNotificationHandler;
         }
 
         private ISmartNotification CreateSmartNotification()
@@ -54,7 +56,19 @@ namespace Marraia.Notifications.Test
             smartNotification
                 .IsValid()
                 .Should()
-                .BeTrue();
+                .BeFalse();
+
+            domainNotificationHandler
+                .GetNotifications()
+                .Should()
+                .HaveCount(1);
+
+            domainNotificationHandler
+                .GetNotifications()
+                .FirstOrDefault()
+                .Value
+                .Should()
+                .Be("Conflict");
         }
 
         [Fact]
@@ -71,7 +85,19 @@ namespace Marraia.Notifications.Test
             smartNotification
                 .IsValid()
                 .Should()
-                .BeTrue();
+                .BeFalse();
+
+            domainNotificationHandler
+                .GetNotifications()
+                .Should()
+                .HaveCount(1);
+
+            domainNotificationHandler
+                .GetNotifications()
+                .FirstOrDefault()
+                .Value
+                .Should()
+                .Be("BadRequest");
         }
     }
 }

@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Marraia.Notifications/1.0.0": {
+      "Marraia.Notifications/1.1.1": {
         "dependencies": {
           "MediatR": "8.0.2",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
@@ -809,7 +809,7 @@
     }
   },
   "libraries": {
-    "Marraia.Notifications/1.0.0": {
+    "Marraia.Notifications/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
