@@ -22,6 +22,12 @@ namespace Marraia.Notifications
                         .HasNotifications();
         }
 
+        public bool HasNotifications()
+        {
+            return _messageHandler
+                        .HasNotifications();
+        }
+
         public void NewNotificationConflict(string message)
         {
             if (message == null)
@@ -37,5 +43,6 @@ namespace Marraia.Notifications
 
             _messageHandler.Handle(new DomainNotification(message, DomainNotificationType.BadRequest), default(CancellationToken));
         }
+
     }
 }

@@ -2233,7 +2233,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Marraia.Notifications/1.1.2": {
+      "Marraia.Notifications/1.1.3": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -7224,7 +7224,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Marraia.Notifications/1.1.2": {
+    "Marraia.Notifications/1.1.3": {
       "type": "project",
       "path": "../Marraia.Notifications/Marraia.Notifications.csproj",
       "msbuildProject": "../Marraia.Notifications/Marraia.Notifications.csproj"
@@ -7233,7 +7233,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "FluentAssertions >= 5.10.3",
-      "Marraia.Notifications >= 1.1.2",
+      "Marraia.Notifications >= 1.1.3",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NSubstitute >= 4.2.2",
       "coverlet.collector >= 1.2.0",
@@ -7266,6 +7266,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
             "C:\\_test\\Marraia.Notifications\\Marraia.Notifications\\Marraia.Notifications.csproj": {
               "projectPath": "C:\\_test\\Marraia.Notifications\\Marraia.Notifications\\Marraia.Notifications.csproj"
@@ -7281,6 +7282,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "FluentAssertions": {
             "target": "Package",
@@ -7322,7 +7324,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

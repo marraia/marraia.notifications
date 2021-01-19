@@ -3,6 +3,7 @@
     public interface ISmartNotification
     {
         bool IsValid();
+        bool HasNotifications();
         void NewNotificationConflict(string message);
         void NewNotificationBadRequest(string message);
     }
