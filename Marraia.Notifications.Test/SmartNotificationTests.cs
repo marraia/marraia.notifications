@@ -8,23 +8,26 @@ using NSubstitute;
 using System;
 using Xunit;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Marraia.Notifications.Test
 {
     public class SmartNotificationTests
     {
+        private ILogger<SmartNotification> subLogger;
         private INotificationHandler<DomainNotification> subNotificationHandler;
         private DomainNotificationHandler domainNotificationHandler;
         public SmartNotificationTests()
         {
+            this.subLogger = Substitute.For<ILogger<SmartNotification>>();
             domainNotificationHandler = new DomainNotificationHandler();
             this.subNotificationHandler = domainNotificationHandler;
         }
 
         private ISmartNotification CreateSmartNotification()
         {
-            return new SmartNotification(
-                this.subNotificationHandler);
+            return new SmartNotification(this.subLogger,
+                                            this.subNotificationHandler);
         }
 
         [Fact]
