@@ -102,5 +102,34 @@ namespace Marraia.Notifications.Test
                 .Should()
                 .Be("BadRequest");
         }
+
+        [Fact]
+        public void NewNotificationError_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            var smartNotification = this.CreateSmartNotification();
+            string message = "Error";
+
+            // Act
+            smartNotification.NewNotificationError(message);
+
+            // Assert
+            smartNotification
+                .IsValid()
+                .Should()
+                .BeFalse();
+
+            domainNotificationHandler
+                .GetNotifications()
+                .Should()
+                .HaveCount(1);
+
+            domainNotificationHandler
+                .GetNotifications()
+                .FirstOrDefault()
+                .Value
+                .Should()
+                .Be("Error");
+        }
     }
 }

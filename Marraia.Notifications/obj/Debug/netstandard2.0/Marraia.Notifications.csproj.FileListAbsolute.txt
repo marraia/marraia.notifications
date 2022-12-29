@@ -7,3 +7,13 @@ C:\_test\Marraia.Notifications\Marraia.Notifications\bin\Debug\netstandard2.0\Ma
 C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.dll
 C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.pdb
 C:\_test\Marraia.Notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.csproj.CoreCompileInputs.cache
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\bin\Debug\netstandard2.0\Marraia.Notifications.deps.json
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\bin\Debug\netstandard2.0\Marraia.Notifications.dll
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\bin\Debug\netstandard2.0\Marraia.Notifications.pdb
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.csproj.AssemblyReference.cache
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.GeneratedMSBuildEditorConfig.editorconfig
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.AssemblyInfoInputs.cache
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.AssemblyInfo.cs
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.csproj.CoreCompileInputs.cache
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.dll
+D:\_projects\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.0\Marraia.Notifications.pdb

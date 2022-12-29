@@ -2233,7 +2233,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Marraia.Notifications/1.1.4": {
+      "Marraia.Notifications/1.1.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -7224,7 +7224,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Marraia.Notifications/1.1.4": {
+    "Marraia.Notifications/1.1.5": {
       "type": "project",
       "path": "../Marraia.Notifications/Marraia.Notifications.csproj",
       "msbuildProject": "../Marraia.Notifications/Marraia.Notifications.csproj"
@@ -7233,7 +7233,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "FluentAssertions >= 5.10.3",
-      "Marraia.Notifications >= 1.1.4",
+      "Marraia.Notifications >= 1.1.5",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NSubstitute >= 4.2.2",
       "coverlet.collector >= 1.2.0",
@@ -7242,19 +7242,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\foes\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_test\\Marraia.Notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+      "projectUniqueName": "D:\\_projects\\_github\\marraia.notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
       "projectName": "Marraia.Notifications.Test",
-      "projectPath": "C:\\_test\\Marraia.Notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
-      "packagesPath": "C:\\Users\\foes\\.nuget\\packages\\",
-      "outputPath": "C:\\_test\\Marraia.Notifications\\Marraia.Notifications.Test\\obj\\",
+      "projectPath": "D:\\_projects\\_github\\marraia.notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\_projects\\_github\\marraia.notifications\\Marraia.Notifications.Test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\foes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7263,15 +7268,14 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://marraia.pkgs.visualstudio.com/_packaging/marraia/nuget/v3/index.json": {},
         "https://pkgs.dev.azure.com/myprofit/_packaging/myprofit/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\_test\\Marraia.Notifications\\Marraia.Notifications\\Marraia.Notifications.csproj": {
-              "projectPath": "C:\\_test\\Marraia.Notifications\\Marraia.Notifications\\Marraia.Notifications.csproj"
+            "D:\\_projects\\_github\\marraia.notifications\\Marraia.Notifications\\Marraia.Notifications.csproj": {
+              "projectPath": "D:\\_projects\\_github\\marraia.notifications\\Marraia.Notifications\\Marraia.Notifications.csproj"
             }
           }
         }
@@ -7326,7 +7330,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

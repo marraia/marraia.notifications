@@ -50,5 +50,14 @@ namespace Marraia.Notifications
             _messageHandler.Handle(new DomainNotification(message, DomainNotificationType.BadRequest), default(CancellationToken));
         }
 
+        public void NewNotificationError(string message)
+        {
+            if (message == null)
+                return;
+
+            _logger.LogWarning(message);
+            _messageHandler.Handle(new DomainNotification(message, DomainNotificationType.Error), default(CancellationToken));
+        }
+
     }
 }
