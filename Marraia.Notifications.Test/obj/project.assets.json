@@ -41,6 +41,15 @@
           "lib/netcoreapp2.1/FluentAssertions.dll": {}
         }
       },
+      "FluentValidation/11.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.dll": {}
+        }
+      },
       "MediatR/8.0.2": {
         "type": "package",
         "compile": {
@@ -2233,10 +2242,11 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Marraia.Notifications/1.1.5": {
+      "Marraia.Notifications/1.1.6": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FluentValidation": "11.4.0",
           "MediatR": "8.0.2",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.2.0",
@@ -2342,6 +2352,29 @@
         "lib/netstandard2.1/FluentAssertions.dll",
         "lib/netstandard2.1/FluentAssertions.pdb",
         "lib/netstandard2.1/FluentAssertions.xml"
+      ]
+    },
+    "FluentValidation/11.4.0": {
+      "sha512": "WZJyrNf4suiaI6avVG32W9kmBLC3+V5rDTcLeRJjeU4tDmTyDIOz1459DzCKppXs34YpZg9rCUzDY3M4XxG7Ug==",
+      "type": "package",
+      "path": "fluentvalidation/11.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.4.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "MediatR/8.0.2": {
@@ -7224,7 +7257,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Marraia.Notifications/1.1.5": {
+    "Marraia.Notifications/1.1.6": {
       "type": "project",
       "path": "../Marraia.Notifications/Marraia.Notifications.csproj",
       "msbuildProject": "../Marraia.Notifications/Marraia.Notifications.csproj"
@@ -7233,7 +7266,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "FluentAssertions >= 5.10.3",
-      "Marraia.Notifications >= 1.1.5",
+      "Marraia.Notifications >= 1.1.6",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NSubstitute >= 4.2.2",
       "coverlet.collector >= 1.2.0",

@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fernando Mendes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Notifique suas regras de negócio em sua API ao invés de usar exceptions!")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.5.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.5")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.6.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Marraia.Notifications")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Marraia.Notifications")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.5.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.6.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 
