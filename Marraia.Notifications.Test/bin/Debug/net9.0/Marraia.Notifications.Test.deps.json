@@ -9,7 +9,7 @@
       "Marraia.Notifications.Test/1.0.0": {
         "dependencies": {
           "FluentAssertions": "5.10.3",
-          "Marraia.Notifications": "1.1.6",
+          "Marraia.Notifications": "2.0.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "NSubstitute": "4.2.2",
           "Newtonsoft.Json": "13.0.3",
@@ -1243,7 +1243,7 @@
           "Microsoft.NET.Test.Sdk": "16.5.0"
         }
       },
-      "Marraia.Notifications/1.1.6": {
+      "Marraia.Notifications/2.0.0": {
         "dependencies": {
           "FluentValidation": "11.4.0",
           "MediatR": "8.0.2",
@@ -1252,8 +1252,8 @@
         },
         "runtime": {
           "Marraia.Notifications.dll": {
-            "assemblyVersion": "1.1.6",
-            "fileVersion": "1.1.6.0"
+            "assemblyVersion": "2.0.0",
+            "fileVersion": "2.0.0.0"
           }
         }
       }
@@ -2014,7 +2014,7 @@
       "path": "xunit.runner.visualstudio/2.4.0",
       "hashPath": "xunit.runner.visualstudio.2.4.0.nupkg.sha512"
     },
-    "Marraia.Notifications/1.1.6": {
+    "Marraia.Notifications/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

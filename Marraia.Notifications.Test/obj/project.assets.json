@@ -2031,7 +2031,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Marraia.Notifications/1.1.6": {
+      "Marraia.Notifications/2.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -6462,7 +6462,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Marraia.Notifications/1.1.6": {
+    "Marraia.Notifications/2.0.0": {
       "type": "project",
       "path": "../Marraia.Notifications/Marraia.Notifications.csproj",
       "msbuildProject": "../Marraia.Notifications/Marraia.Notifications.csproj"
@@ -6471,7 +6471,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "FluentAssertions >= 5.10.3",
-      "Marraia.Notifications >= 1.1.6",
+      "Marraia.Notifications >= 2.0.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NSubstitute >= 4.2.2",
       "Newtonsoft.Json >= 13.0.3",

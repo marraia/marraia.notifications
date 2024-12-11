@@ -317,7 +317,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.1.6",
+    "version": "2.0.0",
     "restore": {
       "projectUniqueName": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Marraia.Notifications.csproj",
       "projectName": "Marraia.Notifications",

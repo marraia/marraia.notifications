@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vis0qWGv1T8=",
+  "dgSpecHash": "9oP+zMC1kww=",
   "success": true,
   "projectFilePath": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
   "expectedPackageFiles": [
@@ -111,7 +111,6 @@
     "C:\\Users\\FernandoMendes\\.nuget\\packages\\xunit.extensibility.core\\2.4.0\\xunit.extensibility.core.2.4.0.nupkg.sha512",
     "C:\\Users\\FernandoMendes\\.nuget\\packages\\xunit.extensibility.execution\\2.4.0\\xunit.extensibility.execution.2.4.0.nupkg.sha512",
     "C:\\Users\\FernandoMendes\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512",
-    "C:\\Users\\FernandoMendes\\.nuget\\packages\\marraia.notifications\\1.1.6\\marraia.notifications.1.1.6.nupkg.sha512",
     "C:\\Users\\FernandoMendes\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.101\\microsoft.net.sdk.compilers.toolset.9.0.101.nupkg.sha512"
   ],
   "logs": []

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Marraia.Notifications.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bef4e5a4691c0edc7a324b6849812708fddb814b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d0e75f3be72a1b1cc7d2db2095ce7edf1226577")]
 [assembly: System.Reflection.AssemblyProductAttribute("Marraia.Notifications.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Marraia.Notifications.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
