@@ -1,0 +1,6 @@
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.csproj.AssemblyReference.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.AssemblyInfoInputs.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.AssemblyInfo.cs
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.csproj.CoreCompileInputs.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\netstandard2.1\Marraia.Notifications.sourcelink.json

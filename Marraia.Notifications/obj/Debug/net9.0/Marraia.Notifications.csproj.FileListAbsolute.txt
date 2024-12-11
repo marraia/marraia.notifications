@@ -1,0 +1,13 @@
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.csproj.AssemblyReference.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.AssemblyInfoInputs.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.AssemblyInfo.cs
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.csproj.CoreCompileInputs.cache
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.sourcelink.json
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\bin\Debug\net9.0\Marraia.Notifications.deps.json
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\bin\Debug\net9.0\Marraia.Notifications.dll
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\bin\Debug\net9.0\Marraia.Notifications.pdb
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.dll
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\refint\Marraia.Notifications.dll
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\Marraia.Notifications.pdb
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\obj\Debug\net9.0\ref\Marraia.Notifications.dll

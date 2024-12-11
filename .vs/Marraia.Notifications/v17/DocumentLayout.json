@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\projects\\_me\\_github\\marraia.notifications\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\marraia.notifications.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\marraia.notifications.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90EC2C30-EAF7-4AF5-8236-39989DE051FC}|Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications.test\\marraia.notifications.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{90EC2C30-EAF7-4AF5-8236-39989DE051FC}|Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj|solutionrelative:marraia.notifications.test\\marraia.notifications.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\base\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\base\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\models\\exceptionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\models\\exceptionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\models\\domainnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\models\\domainnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\interfaces\\ismartnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\interfaces\\ismartnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\handlers\\domainnotificationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\handlers\\domainnotificationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\configurations\\smartnotificationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\configurations\\smartnotificationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\validations\\fieldvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\validations\\fieldvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\validations\\entityvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\validations\\entityvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\smartnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\smartnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90EC2C30-EAF7-4AF5-8236-39989DE051FC}|Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications.test\\smartnotificationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90EC2C30-EAF7-4AF5-8236-39989DE051FC}|Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj|solutionrelative:marraia.notifications.test\\smartnotificationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|c:\\projects\\_me\\_github\\marraia.notifications\\marraia.notifications\\models\\enum\\domainnotificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67D6401A-22CE-4E5D-B14C-81B257026CDB}|Marraia.Notifications\\Marraia.Notifications.csproj|solutionrelative:marraia.notifications\\models\\enum\\domainnotificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ExceptionResponse.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\ExceptionResponse.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Models\\ExceptionResponse.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\ExceptionResponse.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Models\\ExceptionResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:46:09.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DomainNotification.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\DomainNotification.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Models\\DomainNotification.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\DomainNotification.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Models\\DomainNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:46:08.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DomainNotificationHandler.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Handlers\\DomainNotificationHandler.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Handlers\\DomainNotificationHandler.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Handlers\\DomainNotificationHandler.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Handlers\\DomainNotificationHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:46:03.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Marraia.Notifications.Test",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+              "RelativeDocumentMoniker": "Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+              "RelativeToolTip": "Marraia.Notifications.Test\\Marraia.Notifications.Test.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-11T18:42:22.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EntityValidator.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Validations\\EntityValidator.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Validations\\EntityValidator.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Validations\\EntityValidator.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Validations\\EntityValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Marraia.Notifications.csproj",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Marraia.Notifications.csproj",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Marraia.Notifications.csproj",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Marraia.Notifications.csproj",
+              "RelativeToolTip": "Marraia.Notifications\\Marraia.Notifications.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-11T18:39:10.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SmartNotificationExtensions.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Configurations\\SmartNotificationExtensions.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Configurations\\SmartNotificationExtensions.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Configurations\\SmartNotificationExtensions.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Configurations\\SmartNotificationExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Base\\BaseController.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Base\\BaseController.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Base\\BaseController.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Base\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DomainNotificationType.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\Enum\\DomainNotificationType.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Models\\Enum\\DomainNotificationType.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Models\\Enum\\DomainNotificationType.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Models\\Enum\\DomainNotificationType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ISmartNotification.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Interfaces\\ISmartNotification.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Interfaces\\ISmartNotification.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Interfaces\\ISmartNotification.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Interfaces\\ISmartNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SmartNotification.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\SmartNotification.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\SmartNotification.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\SmartNotification.cs",
+              "RelativeToolTip": "Marraia.Notifications\\SmartNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FieldValidation.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Validations\\FieldValidation.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications\\Validations\\FieldValidation.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications\\Validations\\FieldValidation.cs",
+              "RelativeToolTip": "Marraia.Notifications\\Validations\\FieldValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:09.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SmartNotificationTests.cs",
+              "DocumentMoniker": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications.Test\\SmartNotificationTests.cs",
+              "RelativeDocumentMoniker": "Marraia.Notifications.Test\\SmartNotificationTests.cs",
+              "ToolTip": "C:\\projects\\_me\\_github\\marraia.notifications\\Marraia.Notifications.Test\\SmartNotificationTests.cs",
+              "RelativeToolTip": "Marraia.Notifications.Test\\SmartNotificationTests.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAApwIEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:39:10.347Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

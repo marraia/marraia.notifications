@@ -270,3 +270,5 @@ D:\_projects\_github\marraia.notifications\Marraia.Notifications.Test\obj\Debug\
 D:\_projects\_github\marraia.notifications\Marraia.Notifications.Test\obj\Debug\netcoreapp3.1\Marraia.Notifications.Test.pdb
 D:\_projects\_github\marraia.notifications\Marraia.Notifications.Test\obj\Debug\netcoreapp3.1\Marraia.Notifications.Test.genruntimeconfig.cache
 D:\_projects\_github\marraia.notifications\Marraia.Notifications.Test\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications.Test\obj\Debug\netcoreapp3.1\Marraia.Notifications.Test.dll
+C:\projects\_me\_github\marraia.notifications\Marraia.Notifications.Test\obj\Debug\netcoreapp3.1\Marraia.Notifications.Test.pdb
