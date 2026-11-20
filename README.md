@@ -1,120 +1,155 @@
-# Utilização do Marraia.Notifications em aplicações em .Net Core
-![.NET Core](https://github.com/marraia/marraia.notifications/workflows/.NET%20Core/badge.svg?branch=master)
+# Marraia.Notifications
 
-Em sua API, notifique suas regras de negócio ao invés de usar exceptions!
+![.NET](https://github.com/marraia/marraia.notifications/actions/workflows/dotnet.yml/badge.svg?branch=master)
 
-## Injetar o uso do SmartNotification da biblioteca Marraia.Notifications em sua aplicação
+Notifique as regras de negócio da sua API em vez de lançar exceptions. As notificações viram respostas HTTP padronizadas.
 
-Faça a instalação da biblioteca via nuget:
-**Install-Package Marraia.Notifications -Version 1.0.0**
-
-No arquivo Startup.cs de sua aplicação adicione no método **ConfigureServices** o middleware em específico:
-```
-        public void ConfigureServices(IServiceCollection services)
-        {
-            ..
-            ..
-            services.AddSmartNotification();
-        }
-```
-## Notificar 
-
-Em suas regras de negócio ao invés de usar exceptions para saber, se alguma regra foi violada, notifique suas mensagens.
-Para suas API´s, você poderá especificar se as suas regras são de uma má requisição(Bad Request (400)) ou se alguma regra foi violada(Conflict (409))
+Compatível com **.NET 8, 9 e 10**.
 
 ```
+dotnet add package Marraia.Notifications
+```
+
+## Configuração
+
+```csharp
+builder.Services
+    .AddControllers()
+    .AddSmartNotificationModelStateResponse(); // opcional: erros de binding no mesmo formato
+
+builder.Services.AddSmartNotification();
+```
+
+## Notificando nas regras de negócio
+
+Injete `ISmartNotification` e chame o método do tipo de erro:
+
+| Método | Status | Quando usar |
+|---|---|---|
+| `BadRequest(mensagem, campo?)` | 400 | Dados inválidos ou obrigatórios |
+| `Unauthorized(mensagem)` | 401 | Não autenticado, credenciais inválidas, sessão expirada |
+| `Forbidden(mensagem)` | 403 | Autenticado, mas sem permissão |
+| `NotFound(mensagem)` | 404 | Recurso não existe |
+| `Conflict(mensagem)` | 409 | Regra de negócio violada, registro duplicado |
+| `Error(mensagem)` | 500 | Falha inesperada |
+| `Validation(validationResult)` | 400 | Um BadRequest por erro do FluentValidation, com o campo |
+
+```csharp
 public class UserAppService : IUserAppService
 {
     private readonly IUserRepository _userRepository;
     private readonly ISmartNotification _notification;
 
-    public UserAppService(
-      ISmartNotification notification,
-      IUserRepository userRepository)
+    public UserAppService(IUserRepository userRepository, ISmartNotification notification)
     {
-        _notification = notification;
         _userRepository = userRepository;
+        _notification = notification;
     }
-    
-    public async Task InsertAsync(UserInput user)
+
+    public async Task<UserViewModel?> InsertAsync(UserInput input)
     {
-        if (string.IsNullOrEmpty(user.Login) 
-                || string.IsNullOrEmpty(user.Password)
-                || string.IsNullOrEmpty(user.Name))
+        var user = new User(input.Name, input.Email);
+
+        var validation = new UserValidator().Validate(user);
+        if (!validation.IsValid)
         {
-             _notification.NewNotificationBadRequest("Dados obrigatórios");
-             return;
-        }
-        
-        if (user.Age < 18)
-        {
-            _notification.NewNotificationConflict("Usuário com menos de 18 anos");
-            return;
+            _notification.Validation(validation);
+            return null;
         }
 
-        var login = new User(user.Login, 
-                             user.Password, user.Name);
+        if (await _userRepository.ExistsAsync(user.Email))
+        {
+            _notification.Conflict("Já existe um usuário com este e-mail");
+            return null;
+        }
 
-        await _userRepository
-                .InsertAsync(login)
-                .ConfigureAwait(false);
+        await _userRepository.InsertAsync(user);
+        return UserViewModel.From(user);
     }
 }
-```  
+```
 
-## Obter as notificações em sua Controller
+Também há as propriedades `IsValid`, `HasNotifications`, `Notifications` e `MostSevereType`.
 
-Depois de notificar suas regras de negócio ou validações, em sua controller utilize os métodos:
+Serviços que preferirem podem herdar de `EntityValidator` e usar `NotifyValidationErrors(...)`.
 
--**OkOrNotFound()** => Para métodos GET, se verifica caso tenha algum item, o método retornará o código HTTP Ok(200).  
-                   Caso não ter nenhum item, retornará o código HTTP NotFound(404)
-                   
--**OkOrNoContent()** => Para métodos GET, se verifica caso tenha alguma lista com itens, o método retornará o código HTTP Ok(200).  
-                    Caso não ter nenhum item na lista, retornará o código HTTP NoContent(204)
-                    
--**AcceptedContent()** => Para método PUT, caso a alteração foi com sucesso, retornará Accept(202).  
-                    Caso o recurso não foi encontrado, retornará NotFound(404). 
-                    Caso tenha notificação retornará as notificações específicas BadRequest(404) ou Conflict(409)
-                    
--**CreatedContent()** => Para método POST, caso a inserção foi com sucesso, retornará Created(201).  
-                     Caso tenha notificação retornará as notificações específicas BadRequest(404) ou Conflict(409)
-                     
- Faça a herança da classe **BaseController** em sua controller, e faça a injeção da interface **INotificationHandler<DomainNotification>** no contrutor.
-                     
- ```
+## Respondendo na controller
+
+Herde de `BaseController`, que recebe o `ISmartNotification`:
+
+```csharp
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : BaseController
 {
     private readonly IUserAppService _userAppService;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="notification"></param>
-    /// <param name="itemAppService"></param>
-    /// <param name="accessor"></param>
-    public UserController(
-        INotificationHandler<DomainNotification> notification,
-        IUserAppService userAppService)
-    : base(notification)
+    public UserController(ISmartNotification notification, IUserAppService userAppService)
+        : base(notification)
     {
         _userAppService = userAppService;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
     [HttpPost]
-    [ProducesResponseType(typeof(string), 201)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(500)]
-    public async Task<IActionResult> Post([FromBody] UserInput input)
-    {
-        return CreatedContent("", await _userAppService.InsertAsync(input));
-    }
+    public async Task<IActionResult> PostAsync([FromBody] UserInput input)
+        => CreatedContent("", await _userAppService.InsertAsync(input));
 }
- ```
+```
 
+Se houver notificação, qualquer método abaixo responde com o erro. Sem notificação:
+
+| Método | Resposta |
+|---|---|
+| `OkOrNotFound(resultado)` | 200 com os dados; 404 se nulo |
+| `OkOrNoContent(resultado)` | 200 com os dados; 204 se nulo ou lista vazia |
+| `CreatedContent(rota, resultado)` | 201 |
+| `AcceptedContent(resultado)` | 202; 404 se nulo |
+| `AcceptedOrContent(resultado)` | 202, com ou sem corpo |
+| `NoContentOrNotification()` | 204 (comandos sem retorno) |
+
+### Formato das respostas
+
+Sucesso:
+
+```json
+{ "success": true, "data": { "id": "..." } }
+```
+
+Erro (o status é o da notificação mais grave: 500 > 401 > 403 > 404 > 409 > 400):
+
+```json
+{
+  "error": {
+    "code": "BadRequest",
+    "message": [
+      { "value": "O nome é obrigatório", "field": "name" },
+      { "value": "A senha deve ter pelo menos 8 caracteres", "field": "password" }
+    ]
+  }
+}
+```
+
+`field` só aparece quando o erro é de um campo.
+
+## Migrando da 2.x
+
+| 2.x | 3.0 |
+|---|---|
+| `NewNotificationBadRequest(m)` | `BadRequest(m)` ou `BadRequest(m, campo)` |
+| `NewNotificationConflict(m)` | `Conflict(m)` |
+| `NewNotificationError(m)` | `Error(m)` |
+| — | `Unauthorized(m)`, `Forbidden(m)`, `NotFound(m)`, `Validation(result)` |
+| `IsValid()` / `HasNotifications()` | `IsValid` / `HasNotifications` (propriedades) |
+| `BaseController(INotificationHandler<DomainNotification> n)` | `BaseController(ISmartNotification n)` |
+| `NotificationBusiness()` | `NotificationResult()` |
+| `DomainNotification`, `DomainNotificationHandler`, `ExceptionResponse` | `Notification`, `ErrorResponse` |
+
+Outras mudanças:
+
+- Não depende mais de **MediatR** nem de **Newtonsoft.Json**. Se o seu projeto usava algum deles por tabela, adicione a referência direta.
+- O JSON de erro não tem mais `domainNotificationType`, `target: null` nem `innerError: null`; o `code` de erros 500 passou a ser `Error` (antes saía `Conflict`).
+- `OkOrNoContent` aceita qualquer `IEnumerable` (antes quebrava com resultados de LINQ não materializados).
+
+## Publicação
+
+Veja [PUBLICACAO.md](PUBLICACAO.md).

@@ -1,8 +1,0 @@
-is_global = true
-build_property.RootNamespace = Marraia.Notifications
-build_property.ProjectDir = C:\projects\_me\_github\marraia.notifications\Marraia.Notifications\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.CsWinRTUseWindowsUIXamlProjections = false
-build_property.EffectiveAnalysisLevelStyle = 
-build_property.EnableCodeStyleSeverity = 

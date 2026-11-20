@@ -1,30 +1,51 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <PackageId>Marraia.Notifications</PackageId>
     <Authors>Fernando Mendes</Authors>
-    <Description>Notifique suas regras de negócio em sua API ao invés de usar exceptions!</Description>
+    <Description>Notifique as regras de negócio da sua API em vez de lançar exceptions. As notificações viram respostas HTTP padronizadas (400, 401, 403, 404, 409, 500).</Description>
+    <PackageTags>Notification;NotificationPattern;Validation;FluentValidation;AspNetCore;WebApi</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>marraia.png</PackageIcon>
     <PackageProjectUrl>https://github.com/marraia/marraia.notifications</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/marraia/marraia.notifications</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>marraia.png</PackageIcon>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
-    <Version>2.0.0.0</Version>
+
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.0</Version>
+    <PackageReleaseNotes>
+      3.0.0 (breaking change; veja "Migrando da 2.x" no README)
+      - Novos tipos: Unauthorized (401), Forbidden (403) e NotFound (404).
+      - Métodos com nomes mais claros: BadRequest, Unauthorized, Forbidden, NotFound, Conflict, Error e Validation.
+      - Erros por campo: BadRequest(mensagem, campo) e Validation(ValidationResult) preenchem "field".
+      - Status da resposta segue a notificação mais grave, não a primeira.
+      - Remove MediatR e Newtonsoft.Json; BaseController recebe ISmartNotification.
+      - Corrige "code" de erros 500 (antes saía "Conflict") e OkOrNoContent com IEnumerable não materializado.
+      - Suporte a .NET 8, 9 e 10.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.4.0" />
-    <PackageReference Include="MediatR" Version="8.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\img\marraia.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="..\img\marraia.png" Pack="true" PackagePath="" />
+    <None Include="..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Marraia.Notifications.Test" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,10 @@
 ﻿using FluentValidation.Results;
-using System.Collections.Generic;
 
 namespace Marraia.Notifications.Validations
 {
+    /// <summary>
+    /// Agrupa um ou mais resultados do FluentValidation.
+    /// </summary>
     public class FieldValidation
     {
         public FieldValidation(bool isValid)
