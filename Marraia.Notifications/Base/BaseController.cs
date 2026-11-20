@@ -1,170 +1,109 @@
-﻿using Marraia.Notifications.Handlers;
+﻿using System.Collections;
+using Marraia.Notifications.Interfaces;
 using Marraia.Notifications.Models;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
-using System.Linq;
-using System.Net;
 
 namespace Marraia.Notifications.Base
 {
+    /// <summary>
+    /// Base para controllers que respondem conforme as notificações da requisição.
+    /// Sucesso: <c>{ "success": true, "data": ... }</c>. Erro: <see cref="ErrorResponse"/>,
+    /// com o status da notificação mais grave.
+    /// </summary>
     public abstract class BaseController : ControllerBase
     {
-        private readonly DomainNotificationHandler _messageHandler;
-
-        protected BaseController(INotificationHandler<DomainNotification> notification)
+        protected BaseController(ISmartNotification notification)
         {
-            _messageHandler = (DomainNotificationHandler)notification;
+            Notification = notification;
         }
 
-        protected bool HasNotification()
+        protected ISmartNotification Notification { get; }
+
+        protected bool HasNotification() => Notification.HasNotifications;
+
+        /// <summary>Resposta de erro com as notificações atuais.</summary>
+        protected IActionResult NotificationResult()
         {
-            return _messageHandler.HasNotifications();
+            var status = (int)(Notification.MostSevereType ?? NotificationType.BadRequest);
+            return new ObjectResult(ErrorResponse.From(Notification.Notifications)) { StatusCode = status };
         }
 
-        protected IActionResult NotificationBusiness()
+        /// <summary>200 com os dados; 404 se <paramref name="result"/> for nulo; erro se houver notificação.</summary>
+        protected IActionResult OkOrNotFound(object? result = null)
         {
-            var notifications = _messageHandler.GetNotifications();
-            var domainNotificationType = notifications?.FirstOrDefault()?.DomainNotificationType;
+            if (HasNotification())
+                return NotificationResult();
 
-            return new JsonResult(new ExceptionResponse(notifications?.ToList()))
-            {
-                StatusCode = (int?)domainNotificationType
-            };
-        }
-
-        protected IActionResult HttpResponse(object response, HttpStatusCode statusCode = HttpStatusCode.OK)
-        {
-            if (!_messageHandler.HasNotifications()) return new JsonResult(response)
-            {
-                StatusCode = (int)statusCode
-            };
-
-            var notifications = _messageHandler.GetNotifications();
-
-            var domainNotificationType = notifications?.FirstOrDefault()?.DomainNotificationType;
-            if (domainNotificationType != null)
-            {
-                return new JsonResult(new ExceptionResponse(notifications.ToList()))
-                {
-                    StatusCode = (int)domainNotificationType
-                };
-            }
-
-            return new JsonResult(response)
-            {
-                StatusCode = (int)statusCode
-            };
-        }
-
-        protected IActionResult OkOrNotFound(object result = null)
-        {
-
-            if (!HasNotification())
-            {
-                if (result != null)
-                {
-                    if (result is bool)
-                        return Ok();
-
-                    return Ok(new
-                    {
-                        success = true,
-                        data = result
-                    });
-                }
-
+            if (result is null)
                 return NotFound();
-            }
 
-            return NotificationBusiness();
+            return result is bool ? Ok() : Ok(Success(result));
         }
 
-        protected IActionResult OkOrNoContent(object result = null)
+        /// <summary>200 com os dados; 204 se nulo ou lista vazia; erro se houver notificação.</summary>
+        protected IActionResult OkOrNoContent(object? result = null)
         {
-            if (!HasNotification() && result != null)
-            {
-                if (result is IEnumerable)
-                {
-                    if (((ICollection)result).Count > 0)
-                    {
-                        return Ok(new
-                        {
-                            success = true,
-                            data = result
-                        });
-                    }
+            if (HasNotification())
+                return NotificationResult();
 
-                    return NoContent();
-                }
-
-                return Ok(new
-                {
-                    success = true,
-                    data = result
-                });
-            }
-
-            if (!HasNotification() && result == null)
-            {
+            if (result is null || IsEmptyEnumerable(result))
                 return NoContent();
-            }
 
-            return NotificationBusiness();
+            return Ok(Success(result));
         }
 
-        protected IActionResult AcceptedContent(object result = null)
+        /// <summary>202 com os dados; 404 se nulo; erro se houver notificação.</summary>
+        protected IActionResult AcceptedContent(object? result = null)
         {
-            if (!HasNotification())
-            {
-                if (result != null)
-                    return Accepted(new
-                    {
-                        success = true,
-                        data = result
-                    });
+            if (HasNotification())
+                return NotificationResult();
 
-                return NotFound();
-            }
-
-            return NotificationBusiness();
+            return result is null ? NotFound() : Accepted(Success(result));
         }
 
-        protected IActionResult AcceptedOrContent(object result = null)
+        /// <summary>202 com os dados, ou 202 sem corpo se nulo; erro se houver notificação.</summary>
+        protected IActionResult AcceptedOrContent(object? result = null)
         {
-            if (!HasNotification())
-            {
-                if (result != null)
-                    return Accepted(new
-                    {
-                        success = true,
-                        data = result
-                    });
+            if (HasNotification())
+                return NotificationResult();
 
-                return Accepted();
-            }
-
-            return NotificationBusiness();
+            return result is null ? Accepted() : Accepted(Success(result));
         }
 
-        protected IActionResult CreatedContent(string rota, object result = null)
+        /// <summary>201 com os dados; erro se houver notificação.</summary>
+        protected IActionResult CreatedContent(string route, object? result = null)
         {
-            if (!HasNotification())
+            if (HasNotification())
+                return NotificationResult();
+
+            return result is null
+                ? Created(route, new { success = true })
+                : Created(route, Success(result));
+        }
+
+        /// <summary>204 sem corpo (comandos sem retorno); erro se houver notificação.</summary>
+        protected IActionResult NoContentOrNotification()
+            => HasNotification() ? NotificationResult() : NoContent();
+
+        private static object Success(object data) => new { success = true, data };
+
+        private static bool IsEmptyEnumerable(object result)
+        {
+            if (result is string || result is not IEnumerable enumerable)
+                return false;
+
+            if (result is ICollection collection)
+                return collection.Count == 0;
+
+            var enumerator = enumerable.GetEnumerator();
+            try
             {
-                if (result != null)
-                    return Created(rota, new
-                    {
-                        success = true,
-                        data = result
-                    });
-
-                return Created(rota, new
-                {
-                    success = true
-                });
+                return !enumerator.MoveNext();
             }
-
-            return NotificationBusiness();
+            finally
+            {
+                (enumerator as IDisposable)?.Dispose();
+            }
         }
     }
 }

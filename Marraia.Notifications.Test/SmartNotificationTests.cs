@@ -1,135 +1,134 @@
-using FluentAssertions;
-using Marraia.Notifications;
-using Marraia.Notifications.Handlers;
-using Marraia.Notifications.Interfaces;
+using FluentValidation;
 using Marraia.Notifications.Models;
-using MediatR;
-using NSubstitute;
-using System;
-using Xunit;
-using System.Linq;
-using Microsoft.Extensions.Logging;
+using Marraia.Notifications.Validations;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Marraia.Notifications.Test
 {
     public class SmartNotificationTests
     {
-        private ILogger<SmartNotification> subLogger;
-        private INotificationHandler<DomainNotification> subNotificationHandler;
-        private DomainNotificationHandler domainNotificationHandler;
-        public SmartNotificationTests()
+        private static SmartNotification Create() => new(NullLogger<SmartNotification>.Instance);
+
+        [Fact]
+        public void Sem_notificacoes_e_valido()
         {
-            this.subLogger = Substitute.For<ILogger<SmartNotification>>();
-            domainNotificationHandler = new DomainNotificationHandler();
-            this.subNotificationHandler = domainNotificationHandler;
+            var notification = Create();
+
+            Assert.True(notification.IsValid);
+            Assert.False(notification.HasNotifications);
+            Assert.Null(notification.MostSevereType);
         }
 
-        private ISmartNotification CreateSmartNotification()
+        [Theory]
+        [InlineData(NotificationType.BadRequest)]
+        [InlineData(NotificationType.Unauthorized)]
+        [InlineData(NotificationType.Forbidden)]
+        [InlineData(NotificationType.NotFound)]
+        [InlineData(NotificationType.Conflict)]
+        [InlineData(NotificationType.Error)]
+        public void Cada_metodo_registra_o_tipo_correspondente(NotificationType type)
         {
-            return new SmartNotification(this.subLogger,
-                                            this.subNotificationHandler);
+            var notification = Create();
+            Action<string> add = type switch
+            {
+                NotificationType.BadRequest => m => notification.BadRequest(m),
+                NotificationType.Unauthorized => notification.Unauthorized,
+                NotificationType.Forbidden => notification.Forbidden,
+                NotificationType.NotFound => notification.NotFound,
+                NotificationType.Conflict => notification.Conflict,
+                _ => notification.Error
+            };
+
+            add("mensagem");
+
+            var single = Assert.Single(notification.Notifications);
+            Assert.Equal(new Notification("mensagem", type), single);
+            Assert.False(notification.IsValid);
         }
 
         [Fact]
-        public void IsValid_StateUnderTest_ExpectedBehavior()
+        public void Mensagem_vazia_e_ignorada()
         {
-            // Arrange
-            var smartNotification = this.CreateSmartNotification();
+            var notification = Create();
 
-            // Act
-            var result = smartNotification.IsValid();
+            notification.Conflict("");
+            notification.BadRequest("   ");
 
-            // Assert
-            result
-                .Should()
-                .BeTrue();
+            Assert.True(notification.IsValid);
         }
 
         [Fact]
-        public void NewNotificationConflict_StateUnderTest_ExpectedBehavior()
+        public void Tipo_mais_grave_vence_independente_da_ordem()
         {
-            // Arrange
-            var smartNotification = this.CreateSmartNotification();
-            string message = "Conflict";
+            var notification = Create();
 
-            // Act
-            smartNotification.NewNotificationConflict(message);
+            notification.BadRequest("campo");
+            notification.Conflict("duplicado");
+            notification.NotFound("não existe");
 
-            // Assert
-            smartNotification
-                .IsValid()
-                .Should()
-                .BeFalse();
+            Assert.Equal(NotificationType.NotFound, notification.MostSevereType);
 
-            domainNotificationHandler
-                .GetNotifications()
-                .Should()
-                .HaveCount(1);
-
-            domainNotificationHandler
-                .GetNotifications()
-                .FirstOrDefault()
-                .Value
-                .Should()
-                .Be("Conflict");
+            notification.Unauthorized("sem login");
+            Assert.Equal(NotificationType.Unauthorized, notification.MostSevereType);
         }
 
         [Fact]
-        public void NewNotificationBadRequest_StateUnderTest_ExpectedBehavior()
+        public void Validation_converte_erros_do_FluentValidation_com_campo_em_camelCase()
         {
-            // Arrange
-            var smartNotification = this.CreateSmartNotification();
-            string message = "BadRequest";
+            var notification = Create();
+            var result = new PersonValidator().Validate(new Person { Name = "", Address = new Address { ZipCode = "" } });
 
-            // Act
-            smartNotification.NewNotificationBadRequest(message);
+            notification.Validation(result);
 
-            // Assert
-            smartNotification
-                .IsValid()
-                .Should()
-                .BeFalse();
-
-            domainNotificationHandler
-                .GetNotifications()
-                .Should()
-                .HaveCount(1);
-
-            domainNotificationHandler
-                .GetNotifications()
-                .FirstOrDefault()
-                .Value
-                .Should()
-                .Be("BadRequest");
+            Assert.Contains(new Notification("Nome obrigatório", NotificationType.BadRequest, "name"), notification.Notifications);
+            Assert.Contains(new Notification("CEP obrigatório", NotificationType.BadRequest, "address.zipCode"), notification.Notifications);
         }
 
         [Fact]
-        public void NewNotificationError_StateUnderTest_ExpectedBehavior()
+        public void EntityValidator_notifica_FieldValidation()
         {
-            // Arrange
-            var smartNotification = this.CreateSmartNotification();
-            string message = "Error";
+            var notification = Create();
+            var service = new SampleService(notification);
+            var fieldValidation = new FieldValidation(false);
+            fieldValidation.AddValidation(new PersonValidator().Validate(new Person { Address = new Address { ZipCode = "1" } }));
 
-            // Act
-            smartNotification.NewNotificationError(message);
+            service.NotifyValidationErrors(fieldValidation);
 
-            // Assert
-            smartNotification
-                .IsValid()
-                .Should()
-                .BeFalse();
+            var single = Assert.Single(notification.Notifications);
+            Assert.Equal("name", single.Field);
+        }
 
-            domainNotificationHandler
-                .GetNotifications()
-                .Should()
-                .HaveCount(1);
+        [Fact]
+        public void Clear_remove_todas()
+        {
+            var notification = Create();
+            notification.Error("falha");
 
-            domainNotificationHandler
-                .GetNotifications()
-                .FirstOrDefault()
-                .Value
-                .Should()
-                .Be("Error");
+            notification.Clear();
+
+            Assert.True(notification.IsValid);
+        }
+
+        private sealed class SampleService(SmartNotification notification) : EntityValidator(notification);
+
+        private sealed class Person
+        {
+            public string Name { get; set; } = string.Empty;
+            public Address Address { get; set; } = new();
+        }
+
+        private sealed class Address
+        {
+            public string ZipCode { get; set; } = string.Empty;
+        }
+
+        private sealed class PersonValidator : AbstractValidator<Person>
+        {
+            public PersonValidator()
+            {
+                RuleFor(p => p.Name).NotEmpty().WithMessage("Nome obrigatório");
+                RuleFor(p => p.Address.ZipCode).NotEmpty().WithMessage("CEP obrigatório");
+            }
         }
     }
 }

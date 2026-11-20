@@ -1,25 +1,24 @@
-﻿using Marraia.Notifications.Interfaces;
+﻿using FluentValidation.Results;
+using Marraia.Notifications.Interfaces;
 
 namespace Marraia.Notifications.Validations
 {
+    /// <summary>
+    /// Base opcional para serviços que validam entidades e notificam os erros.
+    /// </summary>
     public abstract class EntityValidator
     {
-        private readonly ISmartNotification _smartNotification;
-        public EntityValidator(ISmartNotification smartNotification)
+        protected EntityValidator(ISmartNotification smartNotification)
         {
-            _smartNotification = smartNotification;
+            SmartNotification = smartNotification;
         }
 
+        protected ISmartNotification SmartNotification { get; }
+
         public void NotifyValidationErrors(FieldValidation fieldValidation)
-        {
-            foreach (var item in fieldValidation.Validations)
-            {
-                foreach (var validations in item.Errors)
-                {
-                    _smartNotification
-                        .NewNotificationBadRequest(validations.ErrorMessage);
-                }
-            }
-        }
+            => SmartNotification.Validation(fieldValidation);
+
+        public void NotifyValidationErrors(ValidationResult validationResult)
+            => SmartNotification.Validation(validationResult);
     }
 }
